@@ -5,7 +5,7 @@
 @section('content')
 <div class="flex justify-between items-center mb-8">
     <div>
-        <h1 class="text-3xl font-bold text-gray-900">
+        <h1 class="text-responsive-3xl font-bold text-gray-900">
             <i class="fas fa-user-edit mr-3 text-primary-green"></i>Edit Data Siswa
         </h1>
         <p class="text-gray-600 mt-1">Ubah data siswa: {{ $student->name }}</p>
