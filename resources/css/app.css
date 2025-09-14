@@ -35,16 +35,51 @@
     @apply bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
   }
   
+  /* Button sizes for better desktop experience */
+  .btn-sm {
+    @apply py-1.5 px-3 text-sm;
+  }
+  
+  .btn-md {
+    @apply py-2 px-4 text-base;
+  }
+  
+  .btn-lg {
+    @apply py-3 px-6 text-lg;
+  }
+  
+  /* Action buttons for tables */
+  .btn-action {
+    @apply inline-flex items-center justify-center w-8 h-8 rounded-lg text-sm font-medium transition-colors duration-200;
+  }
+  
+  .btn-action-sm {
+    @apply inline-flex items-center justify-center w-7 h-7 rounded-md text-xs font-medium transition-colors duration-200;
+  }
+  
+  /* Button with icon only on mobile */
+  .btn-icon-mobile {
+    @apply inline-flex items-center justify-center;
+  }
+  
+  .btn-icon-mobile .btn-text {
+    @apply hidden sm:inline;
+  }
+  
+  .btn-icon-mobile .btn-icon {
+    @apply sm:mr-2;
+  }
+  
   .card {
     @apply bg-white rounded-lg shadow-md border border-gray-200;
   }
   
   .form-input {
-    @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-green focus:border-transparent;
+    @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-green focus:border-transparent h-10;
   }
   
   .form-select {
-    @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-green focus:border-transparent;
+    @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-green focus:border-transparent h-10;
   }
   
   .badge {
@@ -84,11 +119,11 @@
   
   /* Mobile-first responsive utilities */
   .mobile-hidden {
-    @apply hidden sm:block;
+    @apply hidden md:block;
   }
   
   .mobile-only {
-    @apply block sm:hidden;
+    @apply block md:hidden;
   }
   
   .tablet-hidden {
@@ -182,10 +217,74 @@
   
   /* Responsive button groups */
   .btn-group-responsive {
-    @apply flex flex-col sm:flex-row gap-2 sm:gap-4;
+    @apply flex gap-2 sm:gap-4;
   }
   
   .btn-group-responsive .btn {
     @apply w-full sm:w-auto;
+  }
+  
+  /* Better shadows for desktop */
+  .shadow-l {
+    @apply shadow-lg;
+  }
+  
+  .shadow-xl {
+    @apply shadow-xl;
+  }
+  
+  /* Desktop-specific improvements */
+  @media (min-width: 1024px) {
+    .btn-action {
+      @apply w-9 h-9 text-base;
+    }
+    
+    .btn-action-sm {
+      @apply w-8 h-8 text-sm;
+    }
+    
+    /* Better table spacing for desktop - only apply to visible columns */
+    .table-responsive table th.mobile-hidden,
+    .table-responsive table td.mobile-hidden {
+      @apply px-6 py-4;
+    }
+    
+    /* Improve table readability */
+    .table-responsive table tbody tr:hover {
+      @apply bg-gray-50;
+    }
+    
+    /* Better button group spacing */
+    .btn-group-responsive {
+      @apply gap-3;
+    }
+    
+    /* Better form layout for desktop */
+    .form-input,
+    .form-select {
+      @apply text-base;
+    }
+    
+    /* Improve card spacing */
+    .card {
+      @apply p-6;
+    }
+  }
+  
+  /* Sidebar menu improvements */
+  .sidebar-menu-item {
+    @apply flex items-center px-4 py-3 text-white hover:bg-primary-yellow hover:text-primary-black rounded-lg transition-all duration-200;
+  }
+  
+  .sidebar-menu-item.active {
+    @apply bg-primary-yellow text-primary-black;
+  }
+  
+  .sidebar-menu-icon {
+    @apply w-5 h-5 flex-shrink-0 mr-3;
+  }
+  
+  .sidebar-menu-text {
+    @apply flex-1 min-w-0;
   }
 }

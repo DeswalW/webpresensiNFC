@@ -4,11 +4,12 @@
 
 @section('content')
 <div class="flex justify-between items-center mb-8">
-    <h1 class="text-3xl font-bold text-gray-900">
+    <h1 class="text-responsive-3xl font-bold text-gray-900">
         <i class="fas fa-user-shield mr-3 text-primary-green"></i>Manajemen Admin
     </h1>
-    <a href="{{ route('admin.admins.create') }}" class="btn-primary">
-        <i class="fas fa-plus mr-2"></i>Tambah Admin
+    <a href="{{ route('admin.admins.create') }}" class="btn-primary btn-icon-mobile">
+        <i class="fas fa-plus btn-icon"></i>
+        <span class="btn-text">Tambah Admin</span>
     </a>
 </div>
 
@@ -45,17 +46,17 @@
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                         <div class="flex space-x-2">
-                            <a href="{{ route('admin.admins.show', $admin) }}" class="btn-info text-xs px-3 py-1">
+                            <a href="{{ route('admin.admins.show', $admin) }}" class="btn-info btn-action-sm">
                                 <i class="fas fa-eye"></i>
                             </a>
-                            <a href="{{ route('admin.admins.edit', $admin) }}" class="btn-warning text-xs px-3 py-1">
+                            <a href="{{ route('admin.admins.edit', $admin) }}" class="btn-warning btn-action-sm">
                                 <i class="fas fa-edit"></i>
                             </a>
                             @if($admin->id !== auth()->guard('admin')->id())
                             <form method="POST" action="{{ route('admin.admins.toggle-status', $admin) }}" class="inline">
                                 @csrf
                                 @method('PATCH')
-                                <button type="submit" class="btn-{{ $admin->is_active ? 'secondary' : 'success' }} text-xs px-3 py-1" 
+                                <button type="submit" class="btn-{{ $admin->is_active ? 'secondary' : 'success' }} btn-action-sm" 
                                         onclick="return confirm('Yakin ingin {{ $admin->is_active ? 'menonaktifkan' : 'mengaktifkan' }} admin ini?')">
                                     <i class="fas fa-{{ $admin->is_active ? 'ban' : 'check' }}"></i>
                                 </button>
@@ -63,7 +64,7 @@
                             <form method="POST" action="{{ route('admin.admins.destroy', $admin) }}" class="inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn-danger text-xs px-3 py-1" 
+                                <button type="submit" class="btn-danger btn-action-sm" 
                                         onclick="return confirm('Yakin ingin menghapus admin ini?')">
                                     <i class="fas fa-trash"></i>
                                 </button>

@@ -4,12 +4,13 @@
 
 @section('content')
 <div class="flex justify-between items-center mb-8">
-    <h1 class="text-3xl font-bold text-gray-900">
+    <h1 class="text-responsive-3xl font-bold text-gray-900">
         <i class="fas fa-chart-bar mr-3 text-primary-green"></i>Laporan Presensi
     </h1>
     <div class="flex space-x-3">
         <a href="{{ route('admin.attendances.index') }}" class="btn-secondary">
-            <i class="fas fa-arrow-left mr-2"></i>Kembali
+            <i class="fas fa-arrow-left btn-icon"></i>
+            <span class="btn-text">Kembali</span>
         </a>
     </div>
 </div>

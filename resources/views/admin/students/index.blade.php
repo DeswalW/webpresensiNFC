@@ -3,16 +3,18 @@
 @section('title', 'Data Siswa - Sistem Presensi')
 
 @section('content')
-<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8 gap-4">
+<div class="flex justify-between items-start sm:items-center mb-6 sm:mb-8 gap-4">
     <h1 class="text-responsive-3xl font-bold text-gray-900">
         <i class="fas fa-users mr-2 sm:mr-3 text-primary-green"></i>Data Siswa
     </h1>
     <div class="btn-group-responsive">
-        <a href="{{ route('admin.students.template') }}" class="btn-secondary">
-            <i class="fas fa-download mr-2"></i>Template CSV
+        <a href="{{ route('admin.students.template') }}" class="btn-secondary btn-icon-mobile">
+            <i class="fas fa-download btn-icon"></i>
+            <span class="btn-text">Template CSV</span>
         </a>
-        <a href="{{ route('admin.students.create') }}" class="btn-primary">
-            <i class="fas fa-plus mr-2"></i>Tambah Siswa
+        <a href="{{ route('admin.students.create') }}" class="btn-primary btn-icon-mobile">
+            <i class="fas fa-plus btn-icon"></i>
+            <span class="btn-text">Tambah Siswa</span>
         </a>
     </div>
 </div>
@@ -36,12 +38,14 @@
                 @endforeach
             </select>
         </div>
-        <div class="btn-group-responsive md:col-span-2">
-            <button type="submit" class="btn-primary">
-                <i class="fas fa-search mr-2"></i>Cari
+        <div class="flex items-end space-x-2 md:col-span-1">
+            <button type="submit" class="btn-primary btn-icon-mobile">
+                <i class="fas fa-search btn-icon"></i>
+                <span class="ml-1">Cari</span>
             </button>
-            <a href="{{ route('admin.students.index') }}" class="btn-secondary">
-                <i class="fas fa-undo mr-2"></i>Reset
+            <a href="{{ route('admin.students.index') }}" class="btn-secondary btn-icon-mobile">
+                <i class="fas fa-undo btn-icon"></i>
+                <span class="ml-1">Reset</span>
             </a>
         </div>
     </form>
@@ -56,9 +60,9 @@
                     <th class="px-3 sm:px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">No</th>
                     <th class="px-3 sm:px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider mobile-hidden">NIS</th>
                     <th class="px-3 sm:px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Nama</th>
-                    <th class="px-3 sm:px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider mobile-hidden">NFC ID</th>
+                    <th class="px-3 sm:px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">NFC ID</th>
                     <th class="px-3 sm:px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider mobile-hidden">Kelas</th>
-                    <th class="px-3 sm:px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider mobile-hidden">Gender</th>
+                    <th class="px-3 sm:px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Gender</th>
                     <th class="px-3 sm:px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Status</th>
                     <th class="px-3 sm:px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Aksi</th>
                 </tr>
@@ -72,14 +76,14 @@
                         <div class="mobile-hidden">{{ $student->name }}</div>
                         <div class="mobile-only">
                             <div class="font-medium">{{ $student->name }}</div>
-                            <div class="text-xs text-gray-500">{{ $student->nis }} • {{ $student->class }}</div>
+                            <div class="text-xs text-gray-500">{{ $student->nis }} <br> {{ $student->class }}</div>
                         </div>
                     </td>
-                    <td class="px-3 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-500 mobile-hidden">
+                    <td class="px-3 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         <code class="bg-gray-100 px-2 py-1 rounded text-xs">{{ $student->nfc_id }}</code>
                     </td>
                     <td class="px-3 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-500 mobile-hidden">{{ $student->class }}</td>
-                    <td class="px-3 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-500 mobile-hidden">{{ $student->gender == 'L' ? 'Laki-laki' : 'Perempuan' }}</td>
+                    <td class="px-3 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $student->gender == 'L' ? 'Laki-laki' : 'Perempuan' }}</td>
                     <td class="px-3 sm:px-6 py-4 whitespace-nowrap">
                         @if($student->is_active)
                             <span class="badge badge-success">Aktif</span>
@@ -128,7 +132,7 @@
     </div>
 
     <!-- Kartu Import di bawah -->
-    <div class="bg-white rounded-2xl shadow-l overflow-hidden p-6 mt-6">
+    <div class="bg-white rounded-2xl shadow-l overflow-hidden p-4 sm:p-6 mb-4 sm:mb-6 mt-6">
         <div class="mb-4">
             <h3 class="text-lg font-semibold text-gray-900">
                 <i class="fas fa-file-import mr-2 text-primary-green"></i>Import Data Siswa
@@ -137,13 +141,14 @@
         <form method="POST" action="{{ route('admin.students.import') }}" enctype="multipart/form-data" class="grid grid-cols-1 md:grid-cols-2 gap-6">
             @csrf
             <div>
-                <label for="file" class="block text-sm font-medium text-gray-700 mb-2">Pilih File (xlsx, xls, csv)</label>
+                <label for="file" class="block text-sm font-medium text-gray-700 mb-2">Pilih File .csv</label>
                 <input class="form-input" type="file" id="file" name="file" accept=".xlsx,.xls,.csv,.txt" required>
                 <p class="mt-1 text-sm text-gray-500">Gunakan <a href="{{ route('admin.students.template') }}" class="text-primary-green underline">template CSV</a> dengan header: <code>nis,name,class,nfc_id,gender</code></p>
             </div>
             <div class="flex items-end">
-                <button type="submit" class="btn-success">
-                    <i class="fas fa-upload mr-2"></i>Mulai Import
+                <button type="submit" class="btn-success btn-icon-mobile">
+                    <i class="fas fa-upload btn-icon"></i>
+                    <span class="ml-1">Mulai Import</span>
                 </button>
             </div>
         </form>

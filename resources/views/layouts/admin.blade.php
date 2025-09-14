@@ -37,54 +37,54 @@
                 
                 <ul class="space-y-2">
                     <li>
-                        <a class="flex items-center px-4 py-3 text-white hover:bg-primary-yellow hover:text-primary-black rounded-lg transition-all duration-200 {{ request()->routeIs('admin.dashboard') ? 'bg-primary-yellow text-primary-black font-semibold' : '' }}" 
+                        <a class="sidebar-menu-item {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}" 
                            href="{{ route('admin.dashboard') }}">
-                            <i class="fas fa-tachometer-alt mr-3"></i>
-                            <span class="sidebar-text">Dashboard</span>
+                            <i class="fas fa-tachometer-alt sidebar-menu-icon"></i>
+                            <span class="sidebar-menu-text">Dashboard</span>
                         </a>
                     </li>
                     @if(Auth::guard('admin')->user()->isSuperAdmin())
                     <li>
-                        <a class="flex items-center px-4 py-3 text-white hover:bg-primary-yellow hover:text-primary-black rounded-lg transition-all duration-200 {{ request()->routeIs('admin.admins.*') ? 'bg-primary-yellow text-primary-black font-semibold' : '' }}" 
+                        <a class="sidebar-menu-item {{ request()->routeIs('admin.admins.*') ? 'active' : '' }}" 
                            href="{{ route('admin.admins.index') }}">
-                            <i class="fas fa-user-shield mr-3"></i>
-                            <span class="sidebar-text">Manajemen Admin</span>
+                            <i class="fas fa-user-shield sidebar-menu-icon"></i>
+                            <span class="sidebar-menu-text">Manajemen Admin</span>
                         </a>
                     </li>
                     @endif
                     <li>
-                        <a class="flex items-center px-4 py-3 text-white hover:bg-primary-yellow hover:text-primary-black rounded-lg transition-all duration-200 {{ request()->routeIs('admin.students.*') ? 'bg-primary-yellow text-primary-black font-semibold' : '' }}" 
+                        <a class="sidebar-menu-item {{ request()->routeIs('admin.students.*') ? 'active' : '' }}" 
                            href="{{ route('admin.students.index') }}">
-                            <i class="fas fa-users mr-3"></i>
-                            <span class="sidebar-text">Data Siswa</span>
+                            <i class="fas fa-users sidebar-menu-icon"></i>
+                            <span class="sidebar-menu-text">Data Siswa</span>
                         </a>
                     </li>
                     <li>
-                        <a class="flex items-center px-4 py-3 text-white hover:bg-primary-yellow hover:text-primary-black rounded-lg transition-all duration-200 {{ request()->routeIs('admin.attendances.*') ? 'bg-primary-yellow text-primary-black font-semibold' : '' }}" 
+                        <a class="sidebar-menu-item {{ request()->routeIs('admin.attendances.*') ? 'active' : '' }}" 
                            href="{{ route('admin.attendances.index') }}">
-                            <i class="fas fa-calendar-check mr-3"></i>
-                            <span class="sidebar-text">Presensi</span>
+                            <i class="fas fa-calendar-check sidebar-menu-icon"></i>
+                            <span class="sidebar-menu-text">Presensi</span>
                         </a>
                     </li>
                     <li>
-                        <a class="flex items-center px-4 py-3 text-white hover:bg-primary-yellow hover:text-primary-black rounded-lg transition-all duration-200 {{ request()->routeIs('admin.report') ? 'bg-primary-yellow text-primary-black font-semibold' : '' }}" 
+                        <a class="sidebar-menu-item {{ request()->routeIs('admin.report') ? 'active' : '' }}" 
                            href="{{ route('admin.report') }}">
-                            <i class="fas fa-chart-bar mr-3"></i>
-                            <span class="sidebar-text">Laporan</span>
+                            <i class="fas fa-chart-bar sidebar-menu-icon"></i>
+                            <span class="sidebar-menu-text">Laporan</span>
                         </a>
                     </li>
                     <li>
-                        <a class="flex items-center px-4 py-3 text-white hover:bg-primary-yellow hover:text-primary-black rounded-lg transition-all duration-200 {{ request()->routeIs('admin.settings.*') ? 'bg-primary-yellow text-primary-black font-semibold' : '' }}" 
+                        <a class="sidebar-menu-item {{ request()->routeIs('admin.settings.*') ? 'active' : '' }}" 
                            href="{{ route('admin.settings.index') }}">
-                            <i class="fas fa-cog mr-3"></i>
-                            <span class="sidebar-text">Pengaturan</span>
+                            <i class="fas fa-cog sidebar-menu-icon"></i>
+                            <span class="sidebar-menu-text">Pengaturan</span>
                         </a>
                     </li>
                     <li>
-                        <a class="flex items-center px-4 py-3 text-white hover:bg-primary-yellow hover:text-primary-black rounded-lg transition-all duration-200 {{ request()->routeIs('admin.activity-logs.*') ? 'bg-primary-yellow text-primary-black font-semibold' : '' }}" 
+                        <a class="sidebar-menu-item {{ request()->routeIs('admin.activity-logs.*') ? 'active' : '' }}" 
                            href="{{ route('admin.activity-logs.index') }}">
-                            <i class="fas fa-clipboard-list mr-3"></i>
-                            <span class="sidebar-text">Log Activity</span>
+                            <i class="fas fa-clipboard-list sidebar-menu-icon"></i>
+                            <span class="sidebar-menu-text">Log Activity</span>
                         </a>
                     </li>
                 </ul>

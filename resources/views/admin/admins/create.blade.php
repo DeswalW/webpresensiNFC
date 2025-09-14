@@ -4,17 +4,29 @@
 
 @section('content')
 <div class="flex justify-between items-center mb-8">
-    <h1 class="text-3xl font-bold text-gray-900">
+    <h1 class="text-responsive-3xl font-bold text-gray-900">
         <i class="fas fa-user-plus mr-3 text-primary-green"></i>Tambah Admin Baru
     </h1>
-    <a href="{{ route('admin.admins.index') }}" class="btn-secondary">
-        <i class="fas fa-arrow-left mr-2"></i>Kembali
+    <a href="{{ route('admin.admins.index') }}" class="btn-secondary btn-icon-mobile">
+        <i class="fas fa-arrow-left btn-icon"></i>
+        <span class="btn-text">Kembali</span>
     </a>
 </div>
 
-<div class="bg-white rounded-2xl shadow-l overflow-hidden p-6">          
-            <form method="POST" action="{{ route('admin.admins.store') }}" class="space-y-4">
-                @csrf
+<div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+    <div class="p-6">
+        @if($errors->any())
+            <div class="mb-6 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg">
+                <ul class="list-disc list-inside text-sm">
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        
+        <form method="POST" action="{{ route('admin.admins.store') }}" class="space-y-6">
+            @csrf
                 
                 <!-- Data Dasar -->
                 <div class="space-y-4">
@@ -134,20 +146,23 @@
                     </label>
                 </div>
 
-                <!-- Buttons -->
-                <div class="flex justify-end space-x-4 pt-4">
-                    <a href="{{ route('admin.admins.index') }}" class="btn-secondary">
-                        <i class="fas fa-times mr-2"></i>Batal
-                    </a>
-                    <button type="submit" class="btn-primary">
-                        <i class="fas fa-save mr-2"></i>Simpan Admin
-                    </button>
-                </div>
-            </form>
+            <!-- Buttons -->
+            <div class="flex justify-end space-x-4 pt-4 border-t border-gray-200">
+                <a href="{{ route('admin.admins.index') }}" class="btn-secondary btn-icon-mobile">
+                    <i class="fas fa-times btn-icon"></i>
+                    <span class="ml-1">Batal</span>
+                </a>
+                <button type="submit" class="btn-primary btn-icon-mobile">
+                    <i class="fas fa-save btn-icon"></i>
+                    <span class="ml-1">Simpan Admin</span>
+                </button>
+            </div>
+        </form>
+    </div>
 </div>
 
 <!-- Info Role -->
-<div class="mt-6 bg-white rounded-2xl shadow-l overflow-hidden p-6">
+<div class="mt-6 bg-white rounded-2xl shadow-lg overflow-hidden p-6">
         <h4 class="text-lg font-semibold text-gray-900 mb-4">
             <i class="fas fa-info-circle mr-2 text-primary-green"></i>Informasi Role
         </h4>

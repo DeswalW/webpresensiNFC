@@ -3,16 +3,18 @@
 @section('title', 'Data Presensi - Sistem Presensi')
 
 @section('content')
-<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8 gap-4">
+<div class="flex justify-between items-start sm:items-center mb-6 sm:mb-8 gap-4">
     <h1 class="text-responsive-3xl font-bold text-gray-900">
         <i class="fas fa-calendar-check mr-2 sm:mr-3 text-primary-green"></i>Data Presensi
     </h1>
     <div class="btn-group-responsive">
-        <a href="{{ route('admin.attendances.manual-entry') }}" class="btn-success">
-            <i class="fas fa-plus mr-2"></i>Input Manual
+        <a href="{{ route('admin.attendances.manual-entry') }}" class="btn-primary btn-icon-mobile">
+            <i class="fas fa-plus btn-icon"></i>
+            <span class="btn-text">Input Manual</span>
         </a>
-        <a href="{{ route('admin.report') }}" class="btn-info">
-            <i class="fas fa-chart-bar mr-2"></i>Laporan
+        <a href="{{ route('admin.report') }}" class="btn-info btn-icon-mobile">
+            <i class="fas fa-chart-bar btn-icon"></i>
+            <span class="btn-text">Laporan</span>
         </a>
     </div>
 </div>
@@ -46,12 +48,14 @@
                 @endforeach
             </select>
         </div>
-        <div class="btn-group-responsive md:col-span-1">
-            <button type="submit" class="btn-primary">
-                <i class="fas fa-search mr-2"></i>Filter
+        <div class="flex items-end space-x-2 md:col-span-1">
+            <button type="submit" class="btn-primary btn-icon-mobile">
+                <i class="fas fa-search btn-icon"></i>
+                <span class="ml-1">Filter</span>
             </button>
-            <a href="{{ route('admin.attendances.index') }}" class="btn-secondary">
-                <i class="fas fa-undo mr-2"></i>Reset
+            <a href="{{ route('admin.attendances.index') }}" class="btn-secondary btn-icon-mobile">
+                <i class="fas fa-undo btn-icon"></i>
+                <span class="ml-1">Reset</span>
             </a>
         </div>
     </form>

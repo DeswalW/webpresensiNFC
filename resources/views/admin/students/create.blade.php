@@ -4,11 +4,12 @@
 
 @section('content')
 <div class="flex justify-between items-center mb-8">
-    <h1 class="text-3xl font-bold text-gray-900">
-        <i class="fas fa-user-plus mr-3 text-primary-green"></i>Tambah Siswa Baru
+    <h1 class="text-responsive-3xl font-bold text-gray-900">
+        <i class="fas fa-user-plus mr-3 text-primary-green"></i>Tambah Siswa
     </h1>
-    <a href="{{ route('admin.students.index') }}" class="btn-secondary">
-        <i class="fas fa-arrow-left mr-2"></i>Kembali
+    <a href="{{ route('admin.students.index') }}" class="btn-secondary btn-icon-mobile">
+        <i class="fas fa-arrow-left btn-icon"></i>
+        <span class="btn-text">Kembali</span>
     </a>
 </div>
 
@@ -24,7 +25,7 @@
             </div>
         @endif
         
-        <form method="POST" action="{{ route('admin.students.store') }}" class="space-y-6">
+        <form method="POST" action="{{ route('admin.students.store') }}" class="gap-6">
             @csrf
             
             <!-- Data Dasar -->
@@ -116,11 +117,13 @@
 
             <!-- Buttons -->
             <div class="flex justify-end space-x-4 pt-4 border-t border-gray-200">
-                <a href="{{ route('admin.students.index') }}" class="btn-secondary">
-                    <i class="fas fa-times mr-2"></i>Batal
+                <a href="{{ route('admin.students.index') }}" class="btn-secondary btn-icon-mobile">
+                    <i class="fas fa-times btn-icon"></i>
+                    <span class="ml-1">Batal</span>
                 </a>
-                <button type="submit" class="btn-primary">
-                    <i class="fas fa-save mr-2"></i>Simpan Siswa
+                <button type="submit" class="btn-primary btn-icon-mobile">
+                    <i class="fas fa-save btn-icon"></i>
+                    <span class="ml-1">Simpan Siswa</span>
                 </button>
             </div>
         </form>

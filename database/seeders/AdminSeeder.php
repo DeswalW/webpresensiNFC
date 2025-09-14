@@ -20,22 +20,22 @@ class AdminSeeder extends Seeder
         ]);
 
         Admin::create([
-            'name' => 'Wali Kelas X IPA 1',
+            'name' => 'Wali Kelas X DPB',
             'email' => 'walikelas1@sekolah.com',
             'username' => 'walikelas1',
             'password' => Hash::make('admin123'),
             'role' => 'wali_kelas',
-            'assigned_class' => 'X IPA 1',
+            'assigned_class' => 'X DPB',
             'is_active' => true,
         ]);
 
         Admin::create([
-            'name' => 'Wali Kelas XI IPA 1',
+            'name' => 'Wali Kelas X DKV',
             'email' => 'walikelas2@sekolah.com',
             'username' => 'walikelas2',
             'password' => Hash::make('admin123'),
             'role' => 'wali_kelas',
-            'assigned_class' => 'XI IPA 1',
+            'assigned_class' => 'X DKV',
             'is_active' => true,
         ]);
     }
